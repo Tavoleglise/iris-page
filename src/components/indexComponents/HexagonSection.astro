@@ -1,0 +1,22 @@
+---
+import HexagonCard from "./HexagonCard.astro";
+import { infoHexagonsCards } from "../../utilities";
+import { splitHexagonCardsArray } from "../../utilities";
+
+const cardsSplited = splitHexagonCardsArray(infoHexagonsCards);
+---
+
+<div class="text-5xl font-semibold xl:text-8xl">Nuestros Productos</div>
+<div class="flex flex-col justify-center items-center my-32">
+  {
+    cardsSplited.map((row) => {
+      return (
+        <div class="flex flex-col xl:flex-row justify-around items-center xl:my-4">
+          {row.map((card) => {
+            return <HexagonCard icon={card.icon}>{card.name}</HexagonCard>;
+          })}
+        </div>
+      );
+    })
+  }
+</div>

@@ -1,0 +1,47 @@
+---
+interface Props {
+  icon: string;
+}
+const { icon } = Astro.props;
+---
+
+<div
+  class="hexagon flex flex-col justify-center items-center text-center p-4 text-4xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 cursor-pointer"
+>
+  <img class="w-16" src={icon} alt="" />
+  <span><slot /></span>
+</div>
+
+<style>
+  .hexagon {
+    width: 300px;
+    height: 165px;
+    background-color: #333;
+    position: relative;
+    margin: 40px 17px;
+    z-index: 1;
+  }
+  .hexagon:before,
+  .hexagon:after {
+    content: "";
+    position: absolute;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    z-index: -1;
+    width: 100%;
+  }
+  .hexagon:before {
+    bottom: 100%;
+    border-bottom: 82.5px solid #333;
+  }
+  .hexagon:after {
+    top: 100%;
+    left: 0;
+    border-top: 82.5px solid #333;
+  }
+  @media (max-width: 1280px) {
+    .hexagon {
+      margin: 80px 0px;
+    }
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardsSection from "../components/indexComponents/CardsSection.astro";
+import HexagonSection from "../components/indexComponents/HexagonSection.astro";
+import { Image } from "@nextui-org/react";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <div class="container mx-auto">
+      <section class="p-16 flex justify-center items-center">
+        <div class="flex flex-col text-5xl">
+          <Image
+            width={300}
+            src="https://hackmd.io/_uploads/rJf-7dK32.png"
+            alt="iris logo"
+            client:visible
+          />
+          <span class="my-4">Adhesivos Industriales</span>
+          <span>Confiables y de Alta Calidad</span>
+        </div>
+        <div>
+          <Image
+            width={600}
+            src="https://hackmd.io/_uploads/Hy-aEdYn3.png"
+            alt="iris logo"
+            client:visible
+          />
+        </div>
+      </section>
+      <section>
+        <CardsSection />
+      </section>
+      <section class="mt-32">
+        <HexagonSection />
+      </section>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import { Button, Image } from "@nextui-org/react";
+---
+
+<footer>
+  <div
+    class="fotter-information bg-cover bg-center flex justify-around items-center my-16 p-8 text-foreground font-bold"
+  >
+    <div>
+      <Image
+        width={150}
+        src="https://hackmd.io/_uploads/rJf-7dK32.png"
+        alt="iris logo"
+        client:visible
+      />
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="text-primary">Location</div>
+      <div class="my-4">Estado de Mexico</div>
+      <Button color="primary" client:visible>Contact</Button>
+    </div>
+    <div><Image width={150} src="" alt="iris logo" /></div>
+  </div>
+  <div class="flex justify-center items-center pb-16 text-gray-400">
+    Copyright 2021 Iris GP. All rights reserved.
+  </div>
+</footer>
+
+<style>
+  .fotter-information {
+    background-image: url("/assets/images/footer/footer-bg.jpg");
+  }
+</style>
