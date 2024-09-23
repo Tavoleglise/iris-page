@@ -1,0 +1,21 @@
+---
+interface Props {
+  place: string;
+  className: string;
+}
+
+const { place, className } = Astro.props;
+---
+
+<div
+  class={`${className} rounded-lg cd-bg-img p-32 mx-4 text-2xl font-semibold flex justify-center items-center text-center shadow-2xl`}
+>
+  {place}
+</div>
+
+<style>
+  .cd-bg-img {
+    background-image: url(https://hackmd.io/_uploads/Bkheg9K23.jpg);
+    background-size: cover;
+  }
+</style>

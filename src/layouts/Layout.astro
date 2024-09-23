@@ -1,12 +1,14 @@
 ---
 interface Props {
   title: string;
+  bgVisible?: boolean;
 }
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer.astro";
+import LoadingScreen from "../components/LoadingScreen.astro";
 
-const { title } = Astro.props;
+const { title, bgVisible = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +22,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-gradient-to-r from-zinc-400 to-zinc-800">
-    <div class="background-image w-full h-full bg-cover bg-no-repeat">
+    <div id="loading-screen">
+      <LoadingScreen />
+    </div>
+    <div class=`${bgVisible ? "background-image" : ""}`>
       <Navbar client:visible />
       <slot />
       <Footer />
@@ -48,5 +53,16 @@ const { title } = Astro.props;
   }
   .background-image {
     background-image: url("/assets/images/fondo.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
   }
 </style>
+<script>
+  window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+      loadingScreen.style.display = "none";
+    }
+  });
+</script>

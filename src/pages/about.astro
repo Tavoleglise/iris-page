@@ -1,5 +1,97 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "@nextui-org/react";
+import SectionWithTitle from "../components/commons/SectionWithTitle.astro";
+import CenDisCard from "../components/aboutUsComponents/CenDisCard.astro";
 ---
 
-<Layout title="About"> Hola </Layout>
+<Layout title="About" bgVisible={false}>
+  <div class="relative">
+    <div class="bg-lines relative z-10"></div>
+    <div class="header-bg-img text-center text-6xl font-bold relative">
+      <div class="container mx-auto pt-16 relative">
+        <Image
+          width={300}
+          src="https://hackmd.io/_uploads/rJf-7dK32.png"
+          alt="iris logo"
+          className="absolute"
+          client:visible
+        />
+        <div class="p-72">
+          <h2>
+            Una empresa internacional líder en innovación y desarrollo de
+            adhesivos industriales. Participamos en varios mercados globales,
+            incluidos automoción, construcción, calzado, náutica, entre otros.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="relative container mx-auto z-20">
+      <SectionWithTitle
+        title="Centros de distribución"
+        subtitle="Encuéntranos en cualquiera de estas ubicaciones"
+      >
+        <div class="flex justify-center mt-16">
+          <CenDisCard className="cd-bg-img" place="León, Guanajuato" />
+          <CenDisCard
+            className="cd-bg-img"
+            place="San Francisco del Rincón, Guanajuato"
+          />
+          <CenDisCard className="cd-bg-img" place="Guadalajara, Jalisco" />
+          <CenDisCard className="cd-bg-img" place="Saltillo, Coahuila" />
+        </div>
+      </SectionWithTitle>
+      <section class="py-32 flex justify-center">
+        <div
+          class="mision-bg-img p-16 rounded-lg flex flex-col justify-center items-center text-center text-6xl mx-16 w-1/2 shadow-2xl"
+        >
+          <h3>Misión</h3>
+          <p class="text-4xl">
+            Ser una empresa líder en la fabricación y desarrollo de adhesivos y
+            productos químicos innovadores de alta calidad que superen
+            continuamente las expectativas de los clientes.
+          </p>
+        </div>
+        <div
+          class="vision-bg-img p-16 rounded-lg flex flex-col justify-center items-center text-center text-6xl mx-16 w-1/2 shadow-2xl"
+        >
+          <h3>Visión</h3>
+          <p class="text-4xl">
+            Ser reconocidos por nuestra excelencia en la fabricación y
+            distribución de productos de alta calidad que contribuyen al
+            bienestar de la humanidad, consolidando relaciones de mutuo
+            beneficio con nuestros clientes y proveedores.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .header-bg-img {
+    background-image: url(https://hackmd.io/_uploads/HJx3xe5Fn2.jpg);
+    background-size: cover;
+  }
+  .bg-lines {
+    background-image: url(/assets/images/fondo.png);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .mision-bg-img {
+    background-image: url(https://hackmd.io/_uploads/rkenllcF2h.jpg);
+    background-size: cover;
+  }
+
+  .vision-bg-img {
+    background-image: url(https://hackmd.io/_uploads/rJgnxxcKhn.jpg);
+    background-size: cover;
+  }
+</style>
