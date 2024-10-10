@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionWithTitle from "../components/commons/SectionWithTitle.astro";
+---
+
+<Layout title="About" bgVisible={false}>
+  <div class="container mx-auto">
+    <SectionWithTitle title="Contáctanos" subtitle="y dinos lo que necesitas">
+      <div class="flex justify-center my-16">
+        <div
+          class="contact-bg-img bg-cover rounded-lg flex flex-col justify-center items-center text-center text-6xl mx-16 shadow-2xl w-1/2"
+        >
+          <div class="text-2xl my-4">+52 55 5824 3496</div>
+          <div class="text-2xl my-4">ventas@irisproducts.mx</div>
+          <div class="text-2xl my-4">+52 55 4047 8646</div>
+        </div>
+      </div>
+    </SectionWithTitle>
+  </div>
+</Layout>
+
+<style>
+  .contact-bg-img {
+    background-image: url(https://hackmd.io/_uploads/Hk594tth3.jpg);
+  }
+</style>

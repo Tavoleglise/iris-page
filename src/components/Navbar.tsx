@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar as NextNavbar,
   NavbarBrand,
@@ -11,11 +11,23 @@ import {
   Image,
 } from "@nextui-org/react";
 
-export default function Navbar() {
+interface NavbarProps {
+  currentPath: string;
+}
+
+export default function Navbar({ currentPath }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
+  useEffect(() => {
+    console.log(currentPath);
+  }, [currentPath]);
 
-  const menuItems = ["Home", "Products", "About Us", "Contact"];
+  const menuItems = [
+    { label: "Home", route: "/" },
+    { label: "Products", route: "/products" },
+    { label: "About Us", route: "/about" },
+    { label: "Contact", route: "/contact-us" },
+  ];
 
   const handleClick = (section: string) => {
     console.log(section);
@@ -33,33 +45,35 @@ export default function Navbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image
-            width={80}
-            src="https://hackmd.io/_uploads/rJf-7dK32.png"
-            alt="iris logo"
-          />
+          <a href="/">
+            <Image
+              width={80}
+              src="https://hackmd.io/_uploads/rJf-7dK32.png"
+              alt="iris logo"
+            />
+          </a>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-8" justify="center">
         {menuItems.map((item, index) => (
           <NavbarItem
-            isActive={activeSection === item}
+            isActive={activeSection === item.label}
             key={`${item}-${index}`}
           >
             <Link
-              color={activeSection === item ? "primary" : "foreground"}
-              href="#"
-              onPress={() => handleClick(item)}
+              color={currentPath === item.route ? "primary" : "foreground"}
+              href={item.route}
+              onPress={() => handleClick(item.label)}
             >
-              {item}
+              {item.label}
             </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.label}-${index}`}>
             <Link
               color={
                 index === 2
@@ -72,7 +86,7 @@ export default function Navbar() {
               href="#"
               size="lg"
             >
-              {item}
+              {item.label}
             </Link>
           </NavbarMenuItem>
         ))}

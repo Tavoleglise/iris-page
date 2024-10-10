@@ -8,14 +8,22 @@ const { place, className } = Astro.props;
 ---
 
 <div
-  class={`${className} rounded-lg cd-bg-img p-32 mx-4 text-2xl font-semibold flex justify-center items-center text-center shadow-2xl`}
+  class={`${className} bg-cover rounded-lg cd-bg-img p-32 mx-4 text-2xl font-semibold flex justify-center items-center text-center shadow-2xl`}
 >
   {place}
 </div>
 
 <style>
-  .cd-bg-img {
+  .cd-bg-img-1 {
     background-image: url(https://hackmd.io/_uploads/Bkheg9K23.jpg);
-    background-size: cover;
+  }
+  .cd-bg-img-2 {
+    background-image: url(https://hackmd.io/_uploads/Sk2gl5Yh3.jpg);
+  }
+  .cd-bg-img-3 {
+    background-image: url(https://hackmd.io/_uploads/H13xecth3.jpg);
+  }
+  .cd-bg-img-4 {
+    background-image: url(https://hackmd.io/_uploads/ry3xlqYn2.jpg);
   }
 </style>

@@ -7,3 +7,44 @@
 >
   <img class="w-96" src="/assets/images/IrisLoaderGIF.gif" alt="" />
 </div>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 1s forwards;
+  }
+
+  .fade-out {
+    animation: fadeOut 1s forwards;
+  }
+</style>
+
+<script>
+  window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+      loadingScreen.classList.remove("fade-in");
+      loadingScreen.classList.add("fade-out");
+      setTimeout(() => {
+        loadingScreen.style.display = "none";
+      }, 1000); // Tiempo de la animación fade-out
+    }
+  });
+</script>
